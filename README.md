@@ -25,6 +25,15 @@ tmux source ~/.tmux.conf
 패키지 설치: `prefix` + `I`
 
 ## Fish
+### Installation (OSX)
+```sh
+$ brew install fish
+$ fish
+$ fish_add_path /opt/homebrew/bin
+$ echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
+$ chsh -s /opt/homebrew/bin/fish
+```
+
 ### Oh My Fish
 ```sh
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
@@ -35,3 +44,25 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 omf install agnoster
 omf theme agnoster
 ```
+
+
+### exa
+https://the.exa.website/
+```sh
+brew install exa
+```
+
+### peco
+https://github.com/peco/peco
+```sh
+brew install peco
+```
+
+### z
+```sh
+omf install z
+```
+
+## ITerm2
+https://github.com/mbadolato/iTerm2-Color-Schemes 을 clone한 후, schemes 폴더를 iterm2에서 import한다.
+
