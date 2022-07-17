@@ -23,3 +23,15 @@ tmux source ~/.tmux.conf
 ```
 
 패키지 설치: `prefix` + `I`
+
+## Fish
+### Oh My Fish
+```sh
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+```
+
+### Theme
+```sh
+omf install agnoster
+omf theme agnoster
+```
