@@ -1,5 +1,10 @@
 function move_to_repo
-	cd $(ghq list -p | peco)
+	set selected_repository (ghq list -p | peco --query "$LBUFFER")
+	if [ -n "$selected_repository" ]
+		cd $selected_repository
+		echo $selected_repository
+		commandline -f repaint
+	end
 end
 
 function fish_user_key_bindings
