@@ -27,6 +27,10 @@ call plug#end()
 :set softtabstop=4
 :set mouse=a
 :colorscheme nightfox
+:autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+:autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
+:autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+:autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
 lua << EOF
 require("nvim-tree").setup()
 require("nvim-treesitter.configs").setup {
