@@ -6,5 +6,9 @@ if status is-interactive
 		alias ll "exa -l -g --icons"
 		alias lla "ll -a"
 	end
+	if test (uname) = Darwin
+		fish_add_path /opt/homebrew/bin
+	end
+
 end
 
