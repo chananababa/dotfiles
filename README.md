@@ -38,20 +38,20 @@ $ echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
 $ chsh -s /opt/homebrew/bin/fish
 ```
 
-### Oh My Fish
+### Fisher
+https://github.com/jorgebucaran/fisher
 ```sh
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ```
 
 ### Theme
 ```sh
-omf install agnoster
-omf theme agnoster
+fisher install oh-my-fish/theme-agnoster
 ```
 
 ### z
 ```sh
-omf install z
+fisher install jethrokuan/z
 ```
 
 ### exa
