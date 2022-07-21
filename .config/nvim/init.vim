@@ -9,11 +9,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'EdenEast/nightfox.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-lua/lsp-status.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 
 call plug#end()
@@ -89,6 +89,11 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = format_on_save
 })
 
+require('telescope').setup({
+  defaults = {
+	file_ignore_patterns = {"node_modules", "__pycache__"}
+  }
+})
 
 require("nvim-tree").setup()
 require("nvim-treesitter.configs").setup {
