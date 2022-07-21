@@ -1,7 +1,5 @@
-" Plug-In 시작 (플러그인 설치 경로)
 call plug#begin('~/.vim/plugged')
 
-" 설치하고 싶은 플러그인 (예, NERDTree)
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'vim-airline/vim-airline'
@@ -13,12 +11,13 @@ Plug 'nvim-treesitter/playground'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'nvim-lua/lsp-status.nvim'
 
 
-" 플러그인 시스템 초기화
 call plug#end()
 
-" 이하 본인의 nvim 설정
 :set number
 :set autoindent
 :set tabstop=4
@@ -32,6 +31,65 @@ call plug#end()
 :autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 :autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
 lua << EOF
+local nvim_lsp_installer = require('nvim-lsp-installer')
+local nvim_lsp = require('lspconfig')
+local lsp_util = require('lspconfig.util')
+local lsp_status = require('lsp-status')
+
+nvim_lsp_installer.setup({
+  automatic_installation = true
+})
+
+local function default_on_attach(client)
+  local has_illuminate, illuminate = pcall(require, 'illuminate')
+  if has_illuminate then illuminate.on_attach(client) end
+  lsp_status.on_attach(client)
+end
+
+local function toggle_formatting(allow_formatting)
+  return function(client)
+	default_on_attach(client)
+    client.resolved_capabilities.document_formatting = allow_formatting
+    client.resolved_capabilities.document_range_formatting = allow_formatting
+  end
+end
+
+nvim_lsp['tsserver'].setup({
+  format = { enable = false }
+})
+nvim_lsp['eslint'].setup({
+  on_attach = toggle_formatting(true),
+  root_dir = lsp_util.find_git_ancestor,
+  settings = {
+    autoFixOnSave = true,
+    codeActionsOnSave = {
+      enable = true,
+      mode = "all",
+      rules = { "!debugger", "!no-only-tests/*" },
+    },
+  },
+})
+
+local function can_autofix(client)
+  return client.config.settings.autoFixOnSave or false
+end
+
+local function format_on_save()
+  local clients = vim.lsp.get_active_clients()
+  local can_autofix_clients = vim.tbl_filter(can_autofix, clients)
+  if #can_autofix_clients > 0 then
+    vim.lsp.buf.formatting_seq_sync()
+  end
+end
+
+vim.api.nvim_create_augroup('LspFormatting', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '<buffer>',
+  group = 'LspFormatting',
+  callback = format_on_save
+})
+
+
 require("nvim-tree").setup()
 require("nvim-treesitter.configs").setup {
   -- A list of parser names, or "all"
