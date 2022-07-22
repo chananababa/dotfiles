@@ -10,6 +10,7 @@ set softtabstop=4
 set mouse=a
 colorscheme nightfox
 
+autocmd FileType lua setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
