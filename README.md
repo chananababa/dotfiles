@@ -12,10 +12,6 @@
 ### nvim-tree
 https://www.nerdfonts.com/ 에서 Hack 폰트를 설치하고 iterm2에 등록한다.
 
-### fzf
-https://github.com/junegunn/fzf.vim
-fzf의 :Ag 커맨드를 사용하려면 silver_searcher를 설치해야 한다: https://github.com/ggreer/the_silver_searcher
-
 ## Tmux
 ### Tmux pakage manager
 ```sh
