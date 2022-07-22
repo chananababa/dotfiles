@@ -1,9 +1,5 @@
 ## Nvim
-### LSP
-```sh
-:CocInstall coc-tsserver coc-json coc-pyright
-```
-
+Requirement: v0.7.0 이상
 ### nvim-treesitter
 ```sh
 :TSInstall javascript typescript tsx python
@@ -11,6 +7,14 @@
 
 ### nvim-tree
 https://www.nerdfonts.com/ 에서 Hack 폰트를 설치하고 iterm2에 등록한다.
+
+### telescope
+live grep 기능을 사용하기 위해 ripgrep을 설치해야 한다.  
+https://github.com/BurntSushi/ripgrep
+```sh
+brew install ripgrep
+```
+
 
 ## Tmux
 ### Tmux pakage manager
@@ -64,7 +68,11 @@ brew install peco # OSX
 apt-get install peco # linux
 ```
 
-
+### ghq
+https://github.com/x-motemen/ghq
+```sh
+brew install ghq
+```
 
 ## ITerm2
 https://github.com/mbadolato/iTerm2-Color-Schemes 을 clone한 후, schemes 폴더를 iterm2에서 import한다.
