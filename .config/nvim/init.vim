@@ -21,5 +21,6 @@ require('plugins.lsp-installer')
 require('plugins.lspconfig')
 require('plugins.treesitter')
 require('plugins.nvim-cmp')
-require('nvim-tree').setup()
+require('plugins.nvim-autopairs')
+require('plugins.nvim-tree')
 EOF
