@@ -13,6 +13,14 @@ local function toggle_formatting(allow_formatting)
 	default_on_attach(client)
     client.resolved_capabilities.document_formatting = allow_formatting
     client.resolved_capabilities.document_range_formatting = allow_formatting
+
+
+	if allow_formatting then
+	  vim.api.nvim_command [[augroup Format]]
+	  vim.api.nvim_command [[autocmd! * <buffer>]]
+	  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+	  vim.api.nvim_command [[augroup END]]
+	end
   end
 end
 
@@ -30,24 +38,5 @@ nvim_lsp['eslint'].setup({
       rules = { "!debugger", "!no-only-tests/*" },
     },
   },
-})
-
-local function can_autofix(client)
-  return client.config.settings.autoFixOnSave or false
-end
-
-local function format_on_save()
-  local clients = vim.lsp.get_active_clients()
-  local can_autofix_clients = vim.tbl_filter(can_autofix, clients)
-  if #can_autofix_clients > 0 then
-    vim.lsp.buf.formatting_seq_sync()
-  end
-end
-
-vim.api.nvim_create_augroup('LspFormatting', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '<buffer>',
-  group = 'LspFormatting',
-  callback = format_on_save
 })
 
