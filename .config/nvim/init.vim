@@ -14,7 +14,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 call plug#end()
 
@@ -26,10 +26,18 @@ call plug#end()
 :set softtabstop=4
 :set mouse=a
 :colorscheme nightfox
+
 :autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 :autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
 :autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 :autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
+
+:nnoremap <leader>t <cmd>NvimTreeToggle<cr>
+:nnoremap <leader>ff <cmd>Telescope find_files<cr>
+:nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+:nnoremap <leader>fb <cmd>Telescope buffers<cr>
+:nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 lua << EOF
 local nvim_lsp_installer = require('nvim-lsp-installer')
 local nvim_lsp = require('lspconfig')
