@@ -1,6 +1,5 @@
-require('telescope').setup({
-  defaults = {
-	file_ignore_patterns = {"node_modules", "__pycache__"}
-  }
+require("telescope").setup({
+	defaults = {
+		file_ignore_patterns = { "node_modules", "__pycache__" },
+	},
 })
-
