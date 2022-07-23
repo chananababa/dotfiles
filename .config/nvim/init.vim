@@ -18,10 +18,10 @@ autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
 
 
 lua << EOF
-require('plugins.lsp-installer')
-require('plugins.lspconfig')
+require('lsp.lsp-installer')
+require('lsp.lspconfig')
+require('lsp.nvim-cmp')
 require('plugins.treesitter')
-require('plugins.nvim-cmp')
 require('plugins.nvim-autopairs')
 require('plugins.nvim-tree')
 EOF

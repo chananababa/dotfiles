@@ -19,6 +19,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'windwp/nvim-autopairs'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
 
 call plug#end()
 
