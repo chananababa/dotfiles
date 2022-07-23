@@ -39,4 +39,3 @@ nvim_lsp['eslint'].setup({
     },
   },
 })
-
