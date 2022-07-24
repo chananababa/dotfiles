@@ -32,7 +32,8 @@ null_ls.setup({
             extra_args = { "--indent-type=spaces" },
         }),
         formatting.prettier,
-        diagnostics.eslint,
+        formatting.eslint_d,
+        diagnostics.eslint_d,
         diagnostics.flake8,
     },
     on_attach = function(client, bufnr)
