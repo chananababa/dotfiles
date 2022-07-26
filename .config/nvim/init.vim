@@ -1,7 +1,7 @@
 runtime ./plug.vim
 runtime ./maps.vim
 
-set relativenumber
+set number relativenumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
