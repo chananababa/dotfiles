@@ -5,19 +5,48 @@ end
 
 local lspconfig = require("lspconfig")
 
+local function mergeTables(table1, table2)
+    local resultTable = {}
+    for k, v in pairs(table1) do
+        resultTable[k] = v
+    end
+    for k, v in pairs(table2) do
+        resultTable[k] = v
+    end
+    return resultTable
+end
+
 local default_on_attach = function(client, bufnr)
-    if client.name == "tsserver" then
+    if client.name == "tsserver" or client.name == "sumneko_lua" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
     end
 end
 
-local servers = { "pyright", "tsserver" }
+local settings = setmetatable({
+    sumneko_lua = {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+            },
+        },
+    },
+}, {
+    __index = function()
+        return {}
+    end,
+})
+
+local default_settings = {
+    on_attach = default_on_attach,
+}
+
+local servers = { "pyright", "tsserver", "sumneko_lua" }
+
 for _, server in ipairs(servers) do
-    lspconfig[server].setup({
-        on_attach = default_on_attach,
-        capabilities = capabilities,
-    })
+    lspconfig[server].setup(mergeTables(settings[server], default_settings))
 end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

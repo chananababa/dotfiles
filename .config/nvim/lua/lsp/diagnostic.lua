@@ -14,4 +14,4 @@ vim.api.nvim_create_autocmd({
     callback = function()
         vim.diagnostic.open_float()
     end,
-}
+})
