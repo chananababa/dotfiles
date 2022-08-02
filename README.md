@@ -49,10 +49,8 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install oh-my-fish/theme-agnoster
 ```
 
-### z
-```sh
-fisher install jethrokuan/z
-```
+### zoxide
+https://github.com/ajeetdsouza/zoxide
 
 ### exa
 https://the.exa.website/
@@ -76,4 +74,18 @@ brew install ghq
 
 ## ITerm2
 https://github.com/mbadolato/iTerm2-Color-Schemes 을 clone한 후, schemes 폴더를 iterm2에서 import한다.
+
+## Etc.
+### commitizen
+https://github.com/commitizen/cz-cli
+```sh
+npm install -g commitizen
+```
+### fzf
+https://github.com/junegunn/fzf
+#### Usage
+```sh
+vim $(fzf)
+```
+
 
