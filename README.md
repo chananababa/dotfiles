@@ -80,6 +80,8 @@ https://github.com/mbadolato/iTerm2-Color-Schemes 을 clone한 후, schemes 폴�
 https://github.com/commitizen/cz-cli
 ```sh
 npm install -g commitizen
+npm install -g cz-conventional-changelog
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 ### fzf
 https://github.com/junegunn/fzf
