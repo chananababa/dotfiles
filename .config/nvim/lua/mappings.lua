@@ -9,3 +9,9 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true })
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>cd",
+    ":lua require'telescope'.extensions.zoxide.list{}<CR>",
+    { noremap = true, silent = true }
+)
