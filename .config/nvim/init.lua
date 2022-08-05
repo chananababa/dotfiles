@@ -1,5 +1,6 @@
 require("plugins")
-require("mappings")
+require("keymaps")
+require("user-commands")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.autoindent = true
