@@ -13,6 +13,8 @@ telescope.setup({
 
 telescope.load_extension("zoxide")
 
+local z_utils = require("telescope._extensions.zoxide.utils")
+
 require("telescope._extensions.zoxide.config").setup({
     mappings = {
         default = {
@@ -20,5 +22,6 @@ require("telescope._extensions.zoxide.config").setup({
                 vim.cmd("tcd " .. selection.path)
             end,
         },
+        ["<C-t>"] = { action = z_utils.create_basic_command("tabnew") },
     },
 })
