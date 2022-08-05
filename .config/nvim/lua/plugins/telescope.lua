@@ -9,9 +9,6 @@ telescope.setup({
             hidden = true,
         },
     },
-    tele_tabby = {
-        use_highlighter = true,
-    },
 })
 
 telescope.load_extension("zoxide")
