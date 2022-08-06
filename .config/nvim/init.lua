@@ -12,17 +12,17 @@ vim.opt.mouse = "a"
 vim.opt.expandtab = true
 vim.cmd("colorscheme nightfox")
 
-local function setTab2(pattern)
+local function set_tab2(pattern)
     vim.api.nvim_create_autocmd("FileType", {
         pattern = pattern,
         command = "setlocal shiftwidth=2 tabstop=2",
     })
 end
 
-local patterns = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+local tab2_patterns = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" }
 
-for _, pattern in ipairs(patterns) do
-    setTab2(pattern)
+for _, pattern in ipairs(tab2_patterns) do
+    set_tab2(pattern)
 end
 
 require("lsp.lsp-installer")
