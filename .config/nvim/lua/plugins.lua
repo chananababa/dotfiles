@@ -28,5 +28,6 @@ Plug("nvim-lua/popup.nvim")
 Plug("jvgrootveld/telescope-zoxide")
 Plug("bkad/CamelCaseMotion")
 Plug("glepnir/lspsaga.nvim", { branch = "main" })
+Plug("nanozuki/tabby.nvim")
 
 vim.call("plug#end")
