@@ -1,5 +1,5 @@
 require("plugins")
-require("keymaps")
+require("mappings")
 require("user-commands")
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -32,7 +32,7 @@ require("lsp.diagnostic")
 require("plugins.treesitter")
 require("plugins.nvim-autopairs")
 require("plugins.nvim-tree")
-require("plugins.camal-case-motion")
+require("plugins.camel-case-motion")
 require("plugins.tabby")
 require("plugins.telescope")
 require("plugins.lspsaga")
