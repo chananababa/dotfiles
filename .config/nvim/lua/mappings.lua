@@ -20,4 +20,13 @@ vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Lspsaga show_line_diagnostics<C
 vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+
+vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+
+local action = require("lspsaga.codeaction")
+vim.keymap.set("n", "<leader>ca", action.code_action, { silent = true })
 vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+vim.keymap.set("n", "<M-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+vim.keymap.set("t", "<M-d>", "<cmd>Lspsaga close_floaterm<CR>", { silent = true })
