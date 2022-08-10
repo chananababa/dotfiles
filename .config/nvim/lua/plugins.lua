@@ -26,5 +26,7 @@ Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("nvim-lua/popup.nvim")
 Plug("jvgrootveld/telescope-zoxide")
+Plug("bkad/CamelCaseMotion")
+Plug("glepnir/lspsaga.nvim", { branch = "main" })
 
 vim.call("plug#end")
