@@ -3,7 +3,7 @@ local builtin = require("telescope.builtin")
 
 telescope.setup({
     defaults = {
-        file_ignore_patterns = { "node_modules", "__pycache__", "plugged" },
+        file_ignore_patterns = { "node_modules", "__pycache__" },
     },
     pickers = {
         find_files = {
