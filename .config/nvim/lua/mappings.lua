@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>NvimTreeToggle<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", { noremap = true })
 vim.api.nvim_set_keymap(
     "n",
     "<leader>ff",
