@@ -16,6 +16,9 @@ vim.keymap.set(
     { noremap = true, silent = true }
 )
 
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>tr", ":TabRename ")
+
 vim.keymap.set("n", "<leader>gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
