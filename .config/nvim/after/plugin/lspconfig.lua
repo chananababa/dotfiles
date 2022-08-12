@@ -62,6 +62,7 @@ null_ls.setup({
         }),
         formatting.prettier,
         formatting.eslint_d,
+        formatting.autopep8,
         diagnostics.eslint_d,
         diagnostics.flake8,
     },
