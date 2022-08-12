@@ -1,4 +1,5 @@
 require("base")
+require("highlight")
 require("plugins")
 require("keymaps")
 require("user-commands")
