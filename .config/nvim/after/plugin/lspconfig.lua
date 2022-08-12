@@ -63,8 +63,14 @@ null_ls.setup({
         formatting.prettier,
         formatting.eslint_d,
         formatting.autopep8,
+        formatting.beautysh.with({
+            extra_args = { "--indent-size", "2" },
+        }),
+        formatting.fish_indent,
         diagnostics.eslint_d,
         diagnostics.flake8,
+        diagnostics.shellcheck,
+        diagnostics.fish,
     },
     on_attach = function(client, bufnr)
         if client.resolved_capabilities.document_formatting then
@@ -73,6 +79,7 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
+                    print("callback")
                     vim.lsp.buf.formatting_sync()
                 end,
             })
