@@ -13,7 +13,7 @@ return require("packer").startup(function(use)
     use("williamboman/nvim-lsp-installer")
     use("nvim-lua/lsp-status.nvim")
     use("nvim-lua/plenary.nvim")
-    use({ "nvim-telescope/telescope.nvim", { tag = "0.1.0" } })
+    use("nvim-telescope/telescope.nvim")
     use({
         "nvim-telescope/telescope-fzf-native.nvim",
         {
@@ -35,4 +35,11 @@ return require("packer").startup(function(use)
     use("tpope/vim-surround")
     use("tpope/vim-fugitive")
     use("ggandor/leap.nvim")
+    use("feline-nvim/feline.nvim")
+    use({
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end,
+    })
 end)
