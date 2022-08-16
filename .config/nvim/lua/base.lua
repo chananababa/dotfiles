@@ -8,6 +8,9 @@ vim.opt.mouse = "a"
 vim.opt.expandtab = true
 vim.cmd("colorscheme nightfox")
 
+vim.opt.list = true
+vim.opt.listchars:append("eol:↴")
+
 local function set_tab2(pattern)
     vim.api.nvim_create_autocmd("FileType", {
         pattern = pattern,
