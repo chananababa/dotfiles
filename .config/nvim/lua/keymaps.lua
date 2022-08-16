@@ -33,3 +33,10 @@ vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
 vim.keymap.set("n", "<M-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 vim.keymap.set("t", "<M-d>", "<cmd>Lspsaga close_floaterm<CR>", { silent = true })
+
+vim.keymap.set("n", "<M-j>", ":m .+1<CR>==", { silent = true, noremap = true })
+vim.keymap.set("n", "<M-k>", ":m .-2<CR>==", { silent = true, noremap = true })
+vim.keymap.set("i", "<M-j>", "<Esc>:m .+1<CR>==gi", { silent = true, noremap = true })
+vim.keymap.set("i", "<M-k>", "<Esc>:m .-2<CR>==gi", { silent = true, noremap = true })
+vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
