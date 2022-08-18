@@ -1,6 +1,7 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
+    use("wbthomason/packer.nvim")
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
     use("ctrlpvim/ctrlp.vim")
@@ -28,7 +29,14 @@ return require("packer").startup(function(use)
     use("nvim-lua/popup.nvim")
     use("jvgrootveld/telescope-zoxide")
     use("bkad/CamelCaseMotion")
-    use({ "glepnir/lspsaga.nvim", { branch = "main" } })
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require("lspsaga")
+            saga.init_lsp_saga()
+        end,
+    })
     use("nanozuki/tabby.nvim")
     use("tpope/vim-surround")
     use("tpope/vim-fugitive")
