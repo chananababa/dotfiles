@@ -22,6 +22,12 @@
 --
 -- This assumes that this file is located at `lua/user/ui/tabby.lua`
 
+local status, tabby = pcall(require, "tabby")
+if not status then
+    return
+end
+
+
 local fmt = string.format
 
 ----------------------------------------------------------------------------------------------------
@@ -215,6 +221,6 @@ local line = {
     },
 }
 
-require("tabby").setup({
+tabby.setup({
     tabline = line,
 })

@@ -6,7 +6,11 @@ vim.opt.smarttab = true
 vim.opt.softtabstop = 4
 vim.opt.mouse = "a"
 vim.opt.expandtab = true
-vim.cmd("colorscheme nightfox")
+
+local theme_status, _ = pcall(require, 'nightfox')
+if theme_status then
+    vim.cmd("colorscheme nightfox")
+end
 
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")

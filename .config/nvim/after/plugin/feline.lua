@@ -22,6 +22,11 @@
 --
 -- This assumes that this file is located at `lua/user/ui/feline.lua`
 
+local status, feline = pcall(require, "feline")
+if not status then
+    return
+end
+
 local fmt = string.format
 
 ----------------------------------------------------------------------------------------------------
@@ -441,7 +446,8 @@ local inactive = {
     { c.in_position }, -- right
 }
 
-require("feline").setup({
+
+feline.setup({
     components = { active = active, inactive = inactive },
     highlight_reset_triggers = {},
     force_inactive = {
