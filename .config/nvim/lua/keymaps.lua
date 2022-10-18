@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 vim.g.camelcasemotion_key = "<leader>"
-vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle .<cr>", { noremap = true })
 vim.keymap.set(
     "n",
     "<leader>ff",
