@@ -6,6 +6,8 @@ vim.opt.smarttab = true
 vim.opt.softtabstop = 4
 vim.opt.mouse = "a"
 vim.opt.expandtab = true
+vim.opt.showtabline = 2
+
 
 local theme_status, _ = pcall(require, 'nightfox')
 if theme_status then
