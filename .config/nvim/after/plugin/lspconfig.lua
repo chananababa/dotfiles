@@ -17,10 +17,6 @@ local function mergeTables(table1, table2)
 end
 
 local default_on_attach = function(client, bufnr)
-    if client.name == "tsserver" or client.name == "sumneko_lua" then
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
-    end
 end
 
 local settings = setmetatable({
@@ -73,13 +69,12 @@ null_ls.setup({
         diagnostics.fish,
     },
     on_attach = function(client, bufnr)
-        if client.server_capabilities.document_formatting then
+        if client.resolved_capabilities.document_formatting then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    print("callback")
                     vim.lsp.buf.format()
                 end,
             })
