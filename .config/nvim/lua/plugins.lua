@@ -2,7 +2,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap =
-        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
     vim.cmd([[packadd packer.nvim]])
 end
 
@@ -10,7 +10,6 @@ return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
-    use("ctrlpvim/ctrlp.vim")
     use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
     use("nvim-treesitter/playground")
     use("EdenEast/nightfox.nvim")
@@ -26,12 +25,12 @@ return require("packer").startup(function(use)
         },
     })
     use("hrsh7th/nvim-cmp")
+    use("hrsh7th/cmp-nvim-lsp")
     use("saadparwaiz1/cmp_luasnip")
     use("L3MON4D3/LuaSnip")
     use("windwp/nvim-autopairs")
     use("windwp/nvim-ts-autotag")
     use("jose-elias-alvarez/null-ls.nvim")
-    use("hrsh7th/cmp-nvim-lsp")
     use("nvim-lua/popup.nvim")
     use("jvgrootveld/telescope-zoxide")
     use("bkad/CamelCaseMotion")
@@ -45,7 +44,6 @@ return require("packer").startup(function(use)
     })
     use("nanozuki/tabby.nvim")
     use("tpope/vim-surround")
-    use("tpope/vim-fugitive")
     use("ggandor/leap.nvim")
     use("feline-nvim/feline.nvim")
     use({
@@ -82,6 +80,9 @@ return require("packer").startup(function(use)
             })
         end,
     })
+    use({ "norcalli/nvim-colorizer.lua", config = function()
+        require('colorizer').setup()
+    end })
 
     if packer_bootstrap then
         require("packer").sync()
