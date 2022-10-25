@@ -44,6 +44,7 @@ return require("packer").startup(function(use)
     })
     use("nanozuki/tabby.nvim")
     use("tpope/vim-surround")
+    use("tpope/vim-commentary")
     use("ggandor/leap.nvim")
     use("feline-nvim/feline.nvim")
     use({
