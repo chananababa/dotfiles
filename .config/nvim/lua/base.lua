@@ -4,8 +4,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 vim.opt.softtabstop = 4
+vim.opt.mouse = "a"
 vim.opt.expandtab = true
 vim.opt.showtabline = 2
+vim.g.oscyank_term = "default"
 
 local theme_status, _ = pcall(require, "nightfox")
 if theme_status then
