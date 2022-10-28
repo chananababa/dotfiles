@@ -16,8 +16,7 @@ local function mergeTables(table1, table2)
     return resultTable
 end
 
-local default_on_attach = function(client, bufnr)
-end
+-- local ih = require("inlay-hints")
 
 local settings = setmetatable({
     sumneko_lua = {
@@ -29,20 +28,49 @@ local settings = setmetatable({
             },
         },
     },
+    tsserver = {
+        on_attach = function(client, bufnr)
+            -- print(vim.inspect(c))
+            -- print(vim.inspect(b))
+            print("AAAAAA")
+            require("lsp-inlayhints").on_attach(client, bufnr)
+            -- ih.on_attach(c, b)
+        end,
+        settings = {
+            javascript = {
+                inlayHints = {
+                    includeInlayEnumMemberValueHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                },
+            },
+            typescript = {
+                inlayHints = {
+                    includeInlayEnumMemberValueHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                },
+            },
+        },
+    },
 }, {
     __index = function()
         return {}
     end,
 })
 
-local default_settings = {
-    on_attach = default_on_attach,
-}
-
 local servers = { "pyright", "tsserver", "sumneko_lua" }
 
 for _, server in ipairs(servers) do
-    lspconfig[server].setup(mergeTables(settings[server], default_settings))
+    lspconfig[server].setup(settings[server])
 end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

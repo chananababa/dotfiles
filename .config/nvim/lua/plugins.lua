@@ -88,6 +88,18 @@ return require("packer").startup(function(use)
         end,
     })
     use("ojroques/vim-oscyank")
+    -- use({ "simrat39/inlay-hints.nvim", config = require("inlay-hints").setup() })
+    use({
+        "lvimuser/lsp-inlayhints.nvim",
+        config = function()
+            require("lsp-inlayhints.adapter").set_old_tsserver()
+            require("lsp-inlayhints").setup({
+                inlay_hints = {
+                    highlight = "Comment",
+                },
+            })
+        end,
+    })
 
     if packer_bootstrap then
         require("packer").sync()
