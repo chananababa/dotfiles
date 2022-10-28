@@ -7,7 +7,7 @@ vim.opt.softtabstop = 4
 vim.opt.mouse = "a"
 vim.opt.expandtab = true
 vim.opt.showtabline = 2
-vim.opt.signcolumn = "number"
+vim.opt.signcolumn = "yes:1"
 vim.g.oscyank_term = "default"
 
 local theme_status, _ = pcall(require, "nightfox")
