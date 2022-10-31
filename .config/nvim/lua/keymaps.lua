@@ -4,7 +4,8 @@ vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle .<cr>", { noremap = true 
 vim.keymap.set(
     "n",
     "<leader>ff",
-    "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+    "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"
+    ,
     { noremap = true }
 )
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true })
@@ -24,6 +25,7 @@ vim.keymap.set("n", "<leader>gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { si
 vim.keymap.set("n", "<leader>gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })

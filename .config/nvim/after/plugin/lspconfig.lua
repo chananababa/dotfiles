@@ -30,11 +30,7 @@ local settings = setmetatable({
     },
     tsserver = {
         on_attach = function(client, bufnr)
-            -- print(vim.inspect(c))
-            -- print(vim.inspect(b))
-            print("AAAAAA")
             require("lsp-inlayhints").on_attach(client, bufnr)
-            -- ih.on_attach(c, b)
         end,
         settings = {
             javascript = {
