@@ -10,9 +10,9 @@ vim.opt.showtabline = 2
 vim.opt.signcolumn = "yes:1"
 vim.g.oscyank_term = "default"
 
-local theme_status, _ = pcall(require, "nightfox")
+local theme_status, _ = pcall(require, "kanagawa")
 if theme_status then
-    vim.cmd("colorscheme nightfox")
+    vim.cmd("colorscheme kanagawa")
 end
 
 vim.opt.list = true
