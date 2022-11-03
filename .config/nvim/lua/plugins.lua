@@ -43,11 +43,20 @@ return require("packer").startup(function(use)
             saga.init_lsp_saga()
         end,
     })
-    use("nanozuki/tabby.nvim")
+    use({
+        "akinsho/bufferline.nvim",
+        config = function()
+            require("bufferline").setup({
+                options = {
+                    mode = "tabs",
+                    show_buffer_close_icons = false,
+                },
+            })
+        end,
+    })
     use("tpope/vim-surround")
     use("tpope/vim-commentary")
     use("ggandor/leap.nvim")
-    use("feline-nvim/feline.nvim")
     use({
         "lewis6991/gitsigns.nvim",
         config = function()
