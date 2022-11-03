@@ -14,6 +14,18 @@ return require("packer").startup(function(use)
     use("nvim-treesitter/playground")
     use("EdenEast/nightfox.nvim")
     use("rebelot/kanagawa.nvim")
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        config = function()
+            require("lualine").setup({
+                options = {
+                    section_separators = "",
+                    component_separators = "",
+                },
+            })
+        end,
+    })
     use("neovim/nvim-lspconfig")
     use("williamboman/nvim-lsp-installer")
     use("nvim-lua/lsp-status.nvim")
