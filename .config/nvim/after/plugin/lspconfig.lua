@@ -30,11 +30,7 @@ local settings = setmetatable({
     },
     tsserver = {
         on_attach = function(client, bufnr)
-            -- print(vim.inspect(c))
-            -- print(vim.inspect(b))
-            print("AAAAAA")
             require("lsp-inlayhints").on_attach(client, bufnr)
-            -- ih.on_attach(c, b)
         end,
         settings = {
             javascript = {
@@ -97,7 +93,7 @@ null_ls.setup({
         diagnostics.fish,
     },
     on_attach = function(client, bufnr)
-        if client.resolved_capabilities.document_formatting then
+        if client.server_capabilities.documentFormattingProvider then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = augroup,
