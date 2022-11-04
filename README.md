@@ -1,5 +1,5 @@
 ## Nvim
-Requirement: v0.7.0 이상
+Requirement: v0.8.0 이상
 ### nvim-treesitter
 ```sh
 :TSInstall javascript typescript tsx python
