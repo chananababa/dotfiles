@@ -8,6 +8,8 @@ if status is-interactive
         source $HOME/.config/fish/ssh_alias.fish
     end
 
+    source $HOME/.config/fish/kanagawa.fish
+
     if type -q exa
         alias ll "exa -l -g --icons"
         alias lla "ll -a"
