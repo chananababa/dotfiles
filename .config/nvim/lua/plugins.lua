@@ -2,7 +2,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap =
-        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
     vim.cmd([[packadd packer.nvim]])
 end
 
@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
             require("lualine").setup({
                 options = {
                     section_separators = "",
-                    component_separators = "",
+                    component_separators = ""
                 },
             })
         end,
@@ -62,6 +62,9 @@ return require("packer").startup(function(use)
                 options = {
                     mode = "tabs",
                     show_buffer_close_icons = false,
+                    always_show_bufferline = false,
+                    show_close_icon = false,
+                    color_icons = true
                 },
             })
         end,
