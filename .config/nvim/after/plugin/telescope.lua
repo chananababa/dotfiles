@@ -61,7 +61,7 @@ require("telescope._extensions.zoxide.config").setup({
 
 telescope.load_extension('file_browser')
 
-vim.keymap.set('n', 'sf', function()
+vim.keymap.set('n', '<leader>sf', function()
     telescope.extensions.file_browser.file_browser({
         -- path = '%:p:h',
         -- cwd = vim.fn.expand('%:p:h'),
