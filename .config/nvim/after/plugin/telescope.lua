@@ -15,6 +15,23 @@ telescope.setup({
     },
 })
 
+vim.keymap.set(
+    "n",
+    "<leader>ff",
+    "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"
+    ,
+    { noremap = true }
+)
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true })
+vim.keymap.set(
+    "n",
+    "<leader>cd",
+    ":lua require'telescope'.extensions.zoxide.list{}<CR>",
+    { noremap = true, silent = true }
+)
+
 telescope.load_extension("zoxide")
 
 require("telescope._extensions.zoxide.config").setup({
@@ -41,3 +58,15 @@ require("telescope._extensions.zoxide.config").setup({
         },
     },
 })
+
+telescope.load_extension('file_browser')
+
+vim.keymap.set('n', 'sf', function()
+    telescope.extensions.file_browser.file_browser({
+        -- path = '%:p:h',
+        -- cwd = vim.fn.expand('%:p:h'),
+        hidden = true,
+        grouped = true,
+        respect_gitignore = false,
+    })
+end)

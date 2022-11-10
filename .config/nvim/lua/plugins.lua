@@ -37,6 +37,8 @@ return require("packer").startup(function(use)
             ["do"] = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
         },
     })
+    use("jvgrootveld/telescope-zoxide")
+    use("nvim-telescope/telescope-file-browser.nvim")
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
     use("saadparwaiz1/cmp_luasnip")
@@ -45,7 +47,6 @@ return require("packer").startup(function(use)
     use("windwp/nvim-ts-autotag")
     use("jose-elias-alvarez/null-ls.nvim")
     use("nvim-lua/popup.nvim")
-    use("jvgrootveld/telescope-zoxide")
     use("bkad/CamelCaseMotion")
     use({
         "glepnir/lspsaga.nvim",

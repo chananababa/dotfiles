@@ -4,3 +4,7 @@ if not status then
 end
 
 nvim_tree.setup()
+
+
+-- Toggle nvim-tree
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle .<cr>", { noremap = true })
