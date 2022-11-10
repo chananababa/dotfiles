@@ -1,2 +1,5 @@
 .config/coc/
+.config/nvim/plugin
 plugged/
+
+
