@@ -228,7 +228,7 @@ return require("packer").startup(function(use)
                     icon = "  ",
                     desc = "File Browser                            ",
                     action = "Telescope file_browser",
-                    shortcut = "SPC f b",
+                    shortcut = "SPC s f",
                 },
                 {
                     icon = "  ",
