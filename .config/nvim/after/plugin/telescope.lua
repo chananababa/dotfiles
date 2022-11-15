@@ -18,8 +18,7 @@ telescope.setup({
 vim.keymap.set(
     "n",
     "<leader>ff",
-    "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"
-    ,
+    "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
     { noremap = true }
 )
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true })
@@ -59,14 +58,15 @@ require("telescope._extensions.zoxide.config").setup({
     },
 })
 
-telescope.load_extension('file_browser')
+telescope.load_extension("file_browser")
 
-vim.keymap.set('n', '<leader>sf', function()
+vim.keymap.set("n", "<leader>sf", function()
     telescope.extensions.file_browser.file_browser({
-        -- path = '%:p:h',
-        -- cwd = vim.fn.expand('%:p:h'),
+        path = "%:p:h",
+        cwd = vim.fn.expand("%:p:h"),
         hidden = true,
         grouped = true,
+        initial_mode = "normal",
         respect_gitignore = false,
     })
 end)
