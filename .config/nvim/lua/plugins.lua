@@ -200,6 +200,8 @@ return require("packer").startup(function(use)
         ft = { "markdown" },
     })
 
+    use("tpope/vim-fugitive")
+
     if packer_bootstrap then
         require("packer").sync()
     end
