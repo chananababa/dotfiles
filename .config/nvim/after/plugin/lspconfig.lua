@@ -57,13 +57,16 @@ local settings = setmetatable({
             },
         },
     },
+    html = {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    },
 }, {
     __index = function()
         return {}
     end,
 })
 
-local servers = { "pyright", "tsserver", "sumneko_lua" }
+local servers = { "pyright", "tsserver", "sumneko_lua", "html" }
 
 for _, server in ipairs(servers) do
     lspconfig[server].setup(settings[server])
@@ -106,8 +109,6 @@ null_ls.setup({
     end,
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 })
-
-
 
 -- lspsaga
 vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
