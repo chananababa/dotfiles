@@ -30,3 +30,10 @@ local tab2_patterns = { "javascript", "javascriptreact", "typescript", "typescri
 for _, pattern in ipairs(tab2_patterns) do
     set_tab2(pattern)
 end
+
+vim.diagnostic.config({
+    virtual_text = {
+        source = "always",
+        prefix = "●",
+    },
+})
