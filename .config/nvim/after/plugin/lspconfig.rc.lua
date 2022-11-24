@@ -3,8 +3,11 @@ if not status then
     return
 end
 
+local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local settings = setmetatable({
     sumneko_lua = {
+        capabilities = cmp_capabilities,
         settings = {
             Lua = {
                 diagnostics = {
@@ -14,6 +17,7 @@ local settings = setmetatable({
         },
     },
     tsserver = {
+        capabilities = cmp_capabilities,
         on_attach = function(client, bufnr)
             require("lsp-inlayhints").on_attach(client, bufnr)
         end,
@@ -43,7 +47,7 @@ local settings = setmetatable({
         },
     },
     html = {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = cmp_capabilities,
     },
 }, {
     __index = function()

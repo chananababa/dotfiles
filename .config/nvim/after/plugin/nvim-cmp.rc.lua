@@ -1,20 +1,3 @@
--- Add additional capabilities supported by nvim-cmp
-local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_status then
-    return
-end
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
---local servers = { 'pyright', 'tsserver' }
---for _, lsp in ipairs(servers) do
---  lspconfig[lsp].setup {
---    -- on_attach = my_custom_on_attach,
---    capabilities = capabilities,
---  }
---end
-
 -- luasnip setup
 local luasnip_status, luasnip = pcall(require, "luasnip")
 if not luasnip_status then
@@ -55,6 +38,28 @@ local kind_icons = {
     TypeParameter = "",
 }
 
+-- `:` cmdline setup.
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        {
+            name = "cmdline",
+            option = {
+                ignore_cmds = { "Man", "!" },
+            },
+        },
+    }),
+})
+
+cmp.setup.cmdline("/", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "buffer" },
+    },
+})
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -92,6 +97,8 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "nvim_lsp_signature_help" },
+        { name = "buffer" },
+        { name = "path" },
     },
     window = {
         completion = cmp.config.window.bordered(),
