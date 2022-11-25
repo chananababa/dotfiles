@@ -119,6 +119,9 @@ cmp.setup({
             return vim_item
         end,
     },
+    experimental = {
+        ghost_text = true,
+    },
 })
 
 local autopairs_status, autopairs = pcall(require, "nvim-autopairs")
