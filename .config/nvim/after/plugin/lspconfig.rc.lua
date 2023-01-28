@@ -55,7 +55,7 @@ local settings = setmetatable({
     end,
 })
 
-local servers = { "pyright", "tsserver", "sumneko_lua", "html" }
+local servers = { "pyright", "tsserver", "sumneko_lua", "html", "tailwindcss" }
 
 for _, server in ipairs(servers) do
     lspconfig[server].setup(settings[server])
