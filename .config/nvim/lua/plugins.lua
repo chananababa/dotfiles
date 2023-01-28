@@ -66,6 +66,7 @@ return require("packer").startup(function(use)
     })
 
     use("tpope/vim-fugitive")
+    use("tpope/vim-repeat")
 
     if packer_bootstrap then
         require("packer").sync()

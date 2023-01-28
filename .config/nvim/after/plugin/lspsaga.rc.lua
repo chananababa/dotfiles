@@ -3,7 +3,7 @@ if not status then
     return
 end
 
-saga.init_lsp_saga()
+saga.setup({})
 
 vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
