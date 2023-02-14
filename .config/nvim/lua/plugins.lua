@@ -7,10 +7,19 @@ end
 
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
-    use("kyazdani42/nvim-web-devicons")
-    use("kyazdani42/nvim-tree.lua")
+    use("nvim-lua/plenary.nvim")
+    use("bkad/CamelCaseMotion")
+    use("tpope/vim-surround")
+    use("tpope/vim-commentary")
+    use("ggandor/leap.nvim")
+    use("ojroques/vim-oscyank")
+    use("tpope/vim-repeat")
+    
+    --- for native neovim (not vscode)
     use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
     use("nvim-treesitter/playground")
+    use("kyazdani42/nvim-web-devicons")
+    use("kyazdani42/nvim-tree.lua")
     use("EdenEast/nightfox.nvim")
     use("rebelot/kanagawa.nvim")
     use({
@@ -20,7 +29,6 @@ return require("packer").startup(function(use)
     use("neovim/nvim-lspconfig")
     use("williamboman/nvim-lsp-installer")
     use("nvim-lua/lsp-status.nvim")
-    use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
     use({
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -43,17 +51,12 @@ return require("packer").startup(function(use)
     use("windwp/nvim-ts-autotag")
     use("jose-elias-alvarez/null-ls.nvim")
     use("nvim-lua/popup.nvim")
-    use("bkad/CamelCaseMotion")
     use({ "glepnir/lspsaga.nvim", branch = "main" })
     use("akinsho/bufferline.nvim")
-    use("tpope/vim-surround")
-    use("tpope/vim-commentary")
-    use("ggandor/leap.nvim")
     use("lewis6991/gitsigns.nvim")
     use("lukas-reineke/indent-blankline.nvim")
-    use("jinh0/eyeliner.nvim")
     use("norcalli/nvim-colorizer.lua")
-    use("ojroques/vim-oscyank")
+    use("jinh0/eyeliner.nvim")
     use("lvimuser/lsp-inlayhints.nvim")
     use("glepnir/dashboard-nvim")
     use({
@@ -64,9 +67,7 @@ return require("packer").startup(function(use)
         end,
         ft = { "markdown" },
     })
-
     use("tpope/vim-fugitive")
-    use("tpope/vim-repeat")
 
     if packer_bootstrap then
         require("packer").sync()
