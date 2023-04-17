@@ -14,7 +14,7 @@ return require("packer").startup(function(use)
     use("ggandor/leap.nvim")
     use("ojroques/vim-oscyank")
     use("tpope/vim-repeat")
-    
+
     --- for native neovim (not vscode)
     use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
     use("nvim-treesitter/playground")
@@ -27,7 +27,8 @@ return require("packer").startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
     use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
+    use({ "williamboman/mason.nvim", run = ":MasonUpdate" })
+    use({ "williamboman/mason-lspconfig.nvim" })
     use("nvim-lua/lsp-status.nvim")
     use("nvim-telescope/telescope.nvim")
     use({
