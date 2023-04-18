@@ -9,16 +9,6 @@ require("mason-lspconfig").setup()
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local settings = setmetatable({
-    sumneko_lua = {
-        capabilities = cmp_capabilities,
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { "vim" },
-                },
-            },
-        },
-    },
     tsserver = {
         capabilities = cmp_capabilities,
         on_attach = function(client, bufnr)
@@ -58,7 +48,7 @@ local settings = setmetatable({
     end,
 })
 
-local servers = { "pyright", "tsserver", "sumneko_lua", "html", "tailwindcss" }
+local servers = { "pyright", "tsserver", "html", "tailwindcss" }
 
 for _, server in ipairs(servers) do
     lspconfig[server].setup(settings[server])
