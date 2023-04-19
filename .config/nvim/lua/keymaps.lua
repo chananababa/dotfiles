@@ -25,5 +25,5 @@ vim.keymap.set("i", "jk", "<ESC>", { noremap = true })
 vim.keymap.set("i", "kj", "<ESC>", { noremap = true })
 
 -- bufferline
-vim.keymap.set('n', '<Tab>', '<cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', {})
+-- vim.keymap.set('n', '<Tab>', '<cmd>BufferLineCycleNext<CR>', {})
+-- vim.keymap.set('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', {})
