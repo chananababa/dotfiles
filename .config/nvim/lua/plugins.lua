@@ -59,7 +59,6 @@ return require("packer").startup(function(use)
     use("norcalli/nvim-colorizer.lua")
     use("jinh0/eyeliner.nvim")
     use("lvimuser/lsp-inlayhints.nvim")
-    use("glepnir/dashboard-nvim")
     use({
         "iamcco/markdown-preview.nvim",
         run = "cd app && npm install",
@@ -68,7 +67,6 @@ return require("packer").startup(function(use)
         end,
         ft = { "markdown" },
     })
-    use("tpope/vim-fugitive")
 
     if packer_bootstrap then
         require("packer").sync()
