@@ -18,7 +18,7 @@ vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
 
 -- copy to clipboard
-vim.keymap.set("v", "<leader>c", ":OSCYank<CR>", { noremap = true })
+vim.keymap.set("v", "<leader>c", "<Plug>OSCYankVisual", { noremap = true })
 
 -- map jk to ESC
 vim.keymap.set("i", "jk", "<ESC>", { noremap = true })
