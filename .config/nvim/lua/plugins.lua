@@ -93,6 +93,8 @@ return require("packer").startup(function(use)
             require("copilot_cmp").setup()
         end
     })
+    use("oxfist/night-owl.nvim")
+
 
     if packer_bootstrap then
         require("packer").sync()

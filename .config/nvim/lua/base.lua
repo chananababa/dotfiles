@@ -8,11 +8,12 @@ vim.opt.mouse = "a"
 vim.opt.expandtab = true
 vim.opt.showtabline = 2
 vim.opt.signcolumn = "yes:1"
+
 vim.g.oscyank_term = "default"
 
-local theme_status, _ = pcall(require, "kanagawa")
+local theme_status, _ = pcall(require, "night-owl")
 if theme_status then
-    vim.cmd("colorscheme kanagawa")
+    vim.cmd("colorscheme night-owl")
 end
 
 vim.opt.list = true
