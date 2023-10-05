@@ -11,11 +11,6 @@ vim.opt.signcolumn = "yes:1"
 
 vim.g.oscyank_term = "default"
 
-local theme_status, _ = pcall(require, "night-owl")
-if theme_status then
-    vim.cmd("colorscheme night-owl")
-end
-
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 
@@ -38,4 +33,3 @@ vim.diagnostic.config({
         prefix = "●",
     },
 })
-

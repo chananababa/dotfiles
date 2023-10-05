@@ -15,13 +15,10 @@ return require("packer").startup(function(use)
     use("ojroques/vim-oscyank")
     use("tpope/vim-repeat")
 
-    --- for native neovim (not vscode)
     use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
     use("nvim-treesitter/playground")
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
-    use("EdenEast/nightfox.nvim")
-    use("rebelot/kanagawa.nvim")
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -71,30 +68,29 @@ return require("packer").startup(function(use)
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         event = "InsertEnter",
-        config = function ()
-            require('copilot').setup({
+        config = function()
+            require("copilot").setup({
                 filetypes = {
                     javascript = true,
-                    typescript = true
+                    typescript = true,
                 },
                 suggestion = {
-                    enabled = false
+                    enabled = false,
                 },
                 panel = {
-                    enabled = false 
+                    enabled = false,
                 },
             })
-        end
+        end,
     })
     use({
         "zbirenbaum/copilot-cmp",
         after = { "copilot.lua" },
-        config = function ()
+        config = function()
             require("copilot_cmp").setup()
-        end
+        end,
     })
-    use("oxfist/night-owl.nvim")
-
+    use({ "catppuccin/nvim", as = "catppuccin" })
 
     if packer_bootstrap then
         require("packer").sync()
