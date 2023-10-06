@@ -3,8 +3,6 @@ if status is-interactive
     alias vi nvim
     alias vim nvim
     alias g git
-    # Set TERM to screen-256color to fix vim color scheme
-    alias tmux "env TERM=screen-256color tmux"
 
     if [ -f $HOME/.config/fish/ssh_alias.fish ]
         source $HOME/.config/fish/ssh_alias.fish

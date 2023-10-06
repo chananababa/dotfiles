@@ -9,6 +9,8 @@ vim.opt.expandtab = true
 vim.opt.showtabline = 2
 vim.opt.signcolumn = "yes:1"
 
+vim.o.termguicolors = true
+
 vim.g.oscyank_term = "default"
 
 vim.opt.list = true
