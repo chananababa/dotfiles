@@ -3,18 +3,65 @@ if not status then
     return
 end
 
+function mergeTable(table1, table2)
+    for i = 1, #table1 do
+        table.insert(table2, table1[i])
+    end
+end
+
+function concatTables(tables)
+    local result = {}
+
+    for i = 1, #tables do
+        mergeTable(tables[i], result)
+    end
+
+    return result
+end
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
+local prettier_root_patterns = {
+    ".prettierrc",
+    ".prettierrc.yml",
+    ".prettierrc.yaml",
+    ".prettierrc.json",
+    ".prettierrc.cjs",
+    ".prettier.config.cjs",
+    ".prettierrc.toml",
+    "prettierrc.js",
+    "prettier.config.js",
+    "prettierrc.mjs",
+    "prettier.config.mjs",
+}
+
+
+local default_root_patterns = {
+    ".null-ls-root",
+    "Makefile",
+    ".git"
+}
+
+local root_patterns = concatTables({
+    default_root_patterns,
+    prettier_root_patterns
+})
+
+
 null_ls.setup({
-    debug = true,
+    root_dir = require("null-ls.utils").root_pattern(unpack(root_patterns)),
     sources = {
         formatting.stylua.with({
             extra_args = { "--indent-type=spaces" },
         }),
-        formatting.prettier,
+        formatting.prettierd.with({
+            condition = function(utils)
+                return utils.root_has_file(prettier_root_patterns)
+            end
+        }),
         formatting.eslint_d,
         formatting.autopep8,
         formatting.beautysh.with({
