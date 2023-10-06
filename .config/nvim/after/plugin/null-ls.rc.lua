@@ -38,6 +38,14 @@ local prettier_root_patterns = {
     "prettier.config.mjs",
 }
 
+local eslint_root_patterns = {
+    '.eslintrc.js',
+    '.eslintrc.cjs',
+    '.eslintrc.yaml',
+    '.eslintrc.yml',
+    '.eslintrc.json'
+}
+
 
 local default_root_patterns = {
     ".null-ls-root",
@@ -47,7 +55,8 @@ local default_root_patterns = {
 
 local root_patterns = concatTables({
     default_root_patterns,
-    prettier_root_patterns
+    prettier_root_patterns,
+    eslint_root_patterns
 })
 
 
@@ -62,13 +71,21 @@ null_ls.setup({
                 return utils.root_has_file(prettier_root_patterns)
             end
         }),
-        formatting.eslint_d,
+        formatting.eslint_d.with({
+            condition = function(utils)
+                return utils.root_has_file(eslint_root_patterns)
+            end
+        }),
         formatting.autopep8,
         formatting.beautysh.with({
             extra_args = { "--indent-size", "2" },
         }),
         formatting.fish_indent,
-        diagnostics.eslint_d,
+        diagnostics.eslint_d.with({
+            condition = function(utils)
+                return utils.root_has_file(eslint_root_patterns)
+            end
+        }),
         diagnostics.flake8,
         diagnostics.shellcheck,
         diagnostics.fish,
