@@ -42,6 +42,16 @@ local settings = setmetatable({
     html = {
         capabilities = cmp_capabilities,
     },
+    lua_ls = {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = { 'vim' }
+                },
+            }
+        }
+    }
 }, {
     __index = function()
         return {}
