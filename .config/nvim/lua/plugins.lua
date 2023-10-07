@@ -90,7 +90,22 @@ return require("packer").startup(function(use)
             require("copilot_cmp").setup()
         end,
     })
-    use({ "catppuccin/nvim", as = "catppuccin" })
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin",
+        -- config here instead of `after` to let nvim load compiled config for transparency
+        config = function()
+            local catppuccin = require('catppuccin')
+            catppuccin.setup({
+                transparent_background = true,
+                integrations = {
+                    lsp_saga = true,
+                    leap = true,
+                },
+            })
+        end,
+        run = ":CatppuccinCompile"
+    })
 
     if packer_bootstrap then
         require("packer").sync()
