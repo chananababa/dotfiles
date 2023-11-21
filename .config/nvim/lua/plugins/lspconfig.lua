@@ -1,8 +1,15 @@
+local required_servers = { "lua_ls", "eslint", "tsserver", "pyright", "tailwindcss", "html" }
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    { "williamboman/mason.nvim", opts = {} },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      opts = {
+        ensure_installed = required_servers,
+      },
+    },
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
@@ -33,9 +40,7 @@ return {
       end,
     })
 
-    local servers = { "pyright", "tsserver", "html", "tailwindcss", "lua_ls" }
-
-    for _, server in ipairs(servers) do
+    for _, server in ipairs(required_servers) do
       lspconfig[server].setup(settings[server])
     end
   end,
