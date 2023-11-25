@@ -1,4 +1,4 @@
-local required_servers = { "lua_ls", "eslint", "tsserver", "pyright", "tailwindcss", "html" }
+local required_servers = { "lua_ls", "eslint", "tsserver", "pyright", "tailwindcss", "html", "prismals" }
 
 return {
   "neovim/nvim-lspconfig",
